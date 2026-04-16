@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <_SdkName>Snowyyd.NET.Sdk.Web</_SdkName>
+    <_MustImportMicrosoftNETSdk Condition="'$(UsingMicrosoftNETSdk)' != 'true'">true</_MustImportMicrosoftNETSdk>
+
+    <CustomBeforeDirectoryBuildProps>$(CustomBeforeDirectoryBuildProps);$(MSBuildThisFileDirectory)../Common/Common.props</CustomBeforeDirectoryBuildProps>
+    <BeforeMicrosoftNETSdkTargets>$(BeforeMicrosoftNETSdkTargets);$(MSBuildThisFileDirectory)/../Common/Common.targets</BeforeMicrosoftNETSdkTargets>
+  </PropertyGroup>
+
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk.Web" Condition="'$(_MustImportMicrosoftNETSdk)' == 'true'" />
+  <Import Project="$(MSBuildThisFileDirectory)../Common/Common.props" Condition="'$(_MustImportMicrosoftNETSdk)' != 'true'" />
+</Project>

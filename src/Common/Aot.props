@@ -1,0 +1,31 @@
+<Project>
+
+  <PropertyGroup>
+    <PublishAot>true</PublishAot>
+    <PublishTrimmed>True</PublishTrimmed>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <StripSymbols>false</StripSymbols>
+
+    <IlcGenerateStackTraceData>true</IlcGenerateStackTraceData>
+    <IlcOptimizationPreference>Balanced</IlcOptimizationPreference>
+    <IlcDisableReflection>false</IlcDisableReflection>
+
+    <DebuggerSupport>true</DebuggerSupport>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>true</Optimize>
+    <StripSymbols>true</StripSymbols>
+
+    <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
+    <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+    <IlcDisableReflection>false</IlcDisableReflection>
+
+    <EventSourceSupport>false</EventSourceSupport>
+    <StackTraceSupport>false</StackTraceSupport>
+  </PropertyGroup>
+
+</Project>
