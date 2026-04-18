@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <PublishAot>true</PublishAot>
+    <!-- <PublishAot>true</PublishAot> -->
     <PublishTrimmed>True</PublishTrimmed>
   </PropertyGroup>
 

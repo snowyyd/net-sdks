@@ -54,6 +54,6 @@
   </ItemGroup>
   -->
 
-  <Import Project="$(MSBuildThisFileDirectory)/Aot.props" Condition="'$(_SdkName)' == 'Snowyyd.NET.Sdk.Aot'" />
+  <Import Project="$(MSBuildThisFileDirectory)/Aot.props" Condition="'$(PublishAot)' == 'true'" />
 
 </Project>
