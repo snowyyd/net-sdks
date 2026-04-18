@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/Snowyyd.NET.Sdk.csproj" />
+  <Project Path="src/Snowyyd.NET.Sdk.Web.csproj" />
+  <Project Path="src/Snowyyd.NET.Sdk.Aot.csproj" />
+</Solution>
