@@ -7,7 +7,7 @@
 
     <!-- Metadata -->
     <PackageId>Snowyyd.NET.Sdk</PackageId>
-    <Version>1.4.0</Version>
+    <VersionPrefix>1.4.1</VersionPrefix>
     <Authors>snowyyd</Authors>
     <Description>Snowyyd's SDK for .NET projects</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>

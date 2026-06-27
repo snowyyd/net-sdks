@@ -11,15 +11,26 @@ SCRIPT_DIR="$(dirname "$(readlink -f "$0")")"
 echo -e "${CYAN}Script directory: ${GREEN}${SCRIPT_DIR}${RESET}"
 
 # Arg check
-if [ "${#}" -ne 2 ]; then
-  echo -e "${YELLOW}Usage: ${GREEN}$0 ${CYAN}<source dir> <out dir>${RESET}" >&2
+if [ "${#}" -lt 2 ]; then
+  # Example usage: rm -rf src/build/bin/Release && bash scripts/publish.sh src/ src/build/bin/Release -- --version-suffix "dev.1"
+  echo -e "${YELLOW}Usage: ${GREEN}$0 ${CYAN}<source dir> <out dir> [-- <additional dotnet pack args>]${RESET}" >&2
   exit 1
 fi
 
 # Paths
-ENV_FILE="$(realpath $SCRIPT_DIR/../.env)"
+ENV_FILE="$(realpath "$SCRIPT_DIR/../.env")"
 SOURCE_DIR="$1"
 OUT_DIR="$2"
+
+# Shift the positional parameters to remove the first two arguments ($1 and $2)
+shift 2
+
+# Capture remaining arguments after the '--' token
+EXTRA_ARGS=()
+if [ "${#}" -gt 0 ] && [ "$1" == "--" ]; then
+  shift # Remove the '--' token from the argument list
+  EXTRA_ARGS=("${@}") # Store all remaining arguments into an array
+fi
 
 # Env loading
 if [[ ! -f "$ENV_FILE" ]]; then
@@ -29,7 +40,7 @@ fi
 
 echo -e "${GREEN}Loading ${YELLOW}${ENV_FILE}${RESET}"
 set -a
-source $ENV_FILE
+source "$ENV_FILE"
 set +a
 
 # Pack
@@ -39,8 +50,11 @@ if [ ! -d "$SOURCE_DIR" ]; then
 fi
 
 while IFS= read -r -d '' csproj; do
+  DEFAULT_ARGS=(-c Release)
   echo -e "${CYAN}Packing: ${GREEN}$csproj${RESET}"
-  dotnet pack -c Release "$csproj"
+  echo -e "${YELLOW}Running: ${CYAN}dotnet pack \"$csproj\" ${DEFAULT_ARGS[@]} ${EXTRA_ARGS[@]+"${EXTRA_ARGS[@]}"}"
+  dotnet pack "$csproj" "${DEFAULT_ARGS[@]}" "${EXTRA_ARGS[@]}"
+
 done < <(find "$SOURCE_DIR" -type f -name '*.csproj' -print0)
 
 # Publish

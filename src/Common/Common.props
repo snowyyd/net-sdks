@@ -54,6 +54,4 @@
   </ItemGroup>
   -->
 
-  <Import Project="$(MSBuildThisFileDirectory)/Aot.props" Condition="'$(PublishAot)' == 'true'" />
-
 </Project>

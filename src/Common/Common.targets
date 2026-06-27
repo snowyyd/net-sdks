@@ -2,4 +2,6 @@
   <PropertyGroup>
     <TargetFramework Condition="'$(TargetFramework)' == '' AND '$(TargetFrameworks)' == '' AND '$(NETCoreAppMaximumVersion)' != ''">net$(NETCoreAppMaximumVersion)</TargetFramework>
   </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)/Aot.props" Condition="'$(PublishAot)' == 'true'" />
 </Project>
