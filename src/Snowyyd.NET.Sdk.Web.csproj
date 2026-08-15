@@ -12,6 +12,7 @@
     <Description>Snowyyd's SDK for .NET projects</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageType>MSBuildSdk</PackageType>
     <RepositoryUrl>https://github.com/snowyyd/net-sdks.git</RepositoryUrl>
 
     <!-- Output -->
@@ -27,8 +28,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Sdk/Snowyyd.NET.Sdk.Web/Sdk.props" Pack="true" PackagePath="Sdk/Sdk.props" />
-    <None Include="Sdk/Snowyyd.NET.Sdk.Web/Sdk.targets" Pack="true" PackagePath="Sdk/Sdk.targets" />
+    <None Include="Sdk/Snowyyd.NET.Sdk.Web/**/*" Pack="true" PackagePath="Sdk/" />
 
     <None Include="Common/**/*" Pack="true" PackagePath="Common/" />
     <!-- <None Include="Config/**/*" Pack="true" PackagePath="Config/" /> -->
