@@ -1,0 +1,11 @@
+<Project>
+  <PropertyGroup>
+    <_MustImportGodotNETSdk Condition="'$(UsingGodotNETSdk)' != 'true'">true</_MustImportGodotNETSdk>
+
+    <CustomBeforeDirectoryBuildProps>$(CustomBeforeDirectoryBuildProps);$(MSBuildThisFileDirectory)../Common/Common.props</CustomBeforeDirectoryBuildProps>
+    <BeforeMicrosoftNETSdkTargets>$(BeforeMicrosoftNETSdkTargets);$(MSBuildThisFileDirectory)../Common/Common.targets</BeforeMicrosoftNETSdkTargets>
+  </PropertyGroup>
+
+  <Import Sdk="Godot.NET.Sdk" Project="Sdk.props" Condition="'$(_MustImportGodotNETSdk)' == 'true'" />
+  <Import Project="$(MSBuildThisFileDirectory)../Common/Common.props" Condition="'$(_MustImportGodotNETSdk)' != 'true'" />
+</Project>

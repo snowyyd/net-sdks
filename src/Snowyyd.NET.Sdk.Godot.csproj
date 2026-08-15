@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Project -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+
+    <!-- Metadata -->
+    <PackageId>Snowyyd.NET.Sdk.Godot</PackageId>
+    <VersionPrefix>1.4.2</VersionPrefix>
+    <Authors>snowyyd</Authors>
+    <Description>Snowyyd's SDK for Godot games</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageType>MSBuildSdk</PackageType>
+    <RepositoryUrl>https://github.com/snowyyd/net-sdks.git</RepositoryUrl>
+
+    <!-- Output -->
+    <NoBuild>true</NoBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeSymbols>false</IncludeSymbols>
+
+    <!-- Misc -->
+    <IsPackable>true</IsPackable>
+    <ErrorReport>none</ErrorReport>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Sdk/Snowyyd.NET.Sdk.Godot/**/*" Pack="true" PackagePath="Sdk/" />
+
+    <None Include="Common/**/*" Pack="true" PackagePath="Common/" />
+    <!-- <None Include="Config/**/*" Pack="true" PackagePath="Config/" /> -->
+  </ItemGroup>
+
+</Project>
