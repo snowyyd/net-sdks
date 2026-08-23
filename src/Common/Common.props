@@ -16,7 +16,7 @@
     <!-- <AllowUnsafeBlocks>true</AllowUnsafeBlocks> -->
 
     <!-- Publish -->
-    <PublishSingleFile Condition="'$(PublishSingleFile)' == '' AND '$(OutputType.ToLower())' != 'library'">true</PublishSingleFile>
+    <!-- <PublishSingleFile>true</PublishSingleFile> -->
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
 
     <!-- Globalization -->
@@ -30,6 +30,7 @@
     <!-- Analyzers -->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Misc -->
     <ErrorReport>none</ErrorReport>

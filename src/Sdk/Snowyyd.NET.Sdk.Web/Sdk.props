@@ -7,5 +7,5 @@
   </PropertyGroup>
 
   <Import Sdk="Microsoft.NET.Sdk.Web" Project="Sdk.props" Condition="'$(_MustImportMicrosoftNETSdkWeb)' == 'true'" />
-  <Import Project="$(MSBuildThisFileDirectory)../Common/Common.props" Condition="'$(_MustImportMicrosoftNETSdk)' != 'true'" />
+  <Import Project="$(MSBuildThisFileDirectory)../Common/Common.props" Condition="'$(_MustImportMicrosoftNETSdkWeb)' != 'true'" />
 </Project>

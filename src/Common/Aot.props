@@ -10,7 +10,7 @@
     <DebuggerSupport>true</DebuggerSupport>
   </PropertyGroup>
 
-  <PropertyGroup Condition="$(Configuration)' == 'Release'">
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <StripSymbols>true</StripSymbols>
 
     <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
