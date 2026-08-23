@@ -1,12 +1,6 @@
 <Project>
 
-  <PropertyGroup>
-    <!-- <PublishAot>true</PublishAot> -->
-    <PublishTrimmed>True</PublishTrimmed>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <Optimize>false</Optimize>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <StripSymbols>false</StripSymbols>
 
     <IlcGenerateStackTraceData>true</IlcGenerateStackTraceData>
@@ -16,15 +10,13 @@
     <DebuggerSupport>true</DebuggerSupport>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <Optimize>true</Optimize>
+  <PropertyGroup Condition="$(Configuration)' == 'Release'">
     <StripSymbols>true</StripSymbols>
 
     <IlcGenerateStackTraceData>false</IlcGenerateStackTraceData>
     <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
     <IlcDisableReflection>false</IlcDisableReflection>
 
-    <EventSourceSupport>false</EventSourceSupport>
     <StackTraceSupport>false</StackTraceSupport>
   </PropertyGroup>
 

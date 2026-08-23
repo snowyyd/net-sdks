@@ -9,17 +9,14 @@
 
   <PropertyGroup>
     <!-- Lang features -->
-    <LangVersion>latest</LangVersion>
+    <!-- <LangVersion>latest</LangVersion> -->
     <Nullable>enable</Nullable>
-    <WarningsAsErrors>nullable</WarningsAsErrors>
+    <WarningsAsErrors>$(WarningsAsErrors);nullable</WarningsAsErrors>
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- <AllowUnsafeBlocks>true</AllowUnsafeBlocks> -->
 
     <!-- Publish -->
-    <PublishSingleFile>true</PublishSingleFile>
-    <PublishTrimmed>false</PublishTrimmed>
-    <!-- <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract> -->
-    <!-- <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract> -->
+    <PublishSingleFile Condition="'$(PublishSingleFile)' == '' AND '$(OutputType.ToLower())' != 'library'">true</PublishSingleFile>
     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
 
     <!-- Globalization -->
@@ -27,15 +24,12 @@
     <AnalyzerExplicitGlobalization>true</AnalyzerExplicitGlobalization>
 
     <!-- QOL -->
-    <Deterministic>true</Deterministic>
-    <PathMap>$(MSBuildProjectDirectory)=.</PathMap>
+    <!-- <PathMap>$(MSBuildProjectDirectory)=.</PathMap> -->
     <EnableSourceLink>false</EnableSourceLink>
-    <DebugType>Portable</DebugType>
 
     <!-- Analyzers -->
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- Misc -->
     <ErrorReport>none</ErrorReport>
